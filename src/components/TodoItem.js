@@ -5,7 +5,7 @@ import React from 'react'
 　・チェックボックスにチェックが入っているか管理する
 　・チェックボックスにチェックが入っているかアイテムをグレーアウトする
 */
-function TodoItem(item) {
+function TodoItem(props) {
   const [state,setState] =React.useState(false);
   const getClickBox = () => {
     setState(!state);
@@ -14,7 +14,7 @@ function TodoItem(item) {
   return (
     <label className= {state ? "panel-block has-text-grey-light" : "panel-block"}>
     <input type = "checkbox" onClick={() => getClickBox()} />
-    {item.text}
+    {props.item.text}
     </label>
   );
 }
