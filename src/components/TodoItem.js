@@ -1,3 +1,4 @@
+import React from 'react'
 /* 
   【TodoItemコンポーネント】
 　・Todoアイテムを表示する
@@ -5,10 +6,15 @@
 　・チェックボックスにチェックが入っているかアイテムをグレーアウトする
 */
 function TodoItem(item) {
+  const [state,setState] =React.useState(false);
+  const getClickBox = () => {
+    setState(!state);
+  }
+  
   return (
-    <label className="panel-block">
-      <input type="checkbox" />
-      {item.text}
+    <label className= {state ? "panel-block has-text-grey-light" : "panel-block"}>
+    <input type = "checkbox" onClick={() => getClickBox()} />
+    {item.text}
     </label>
   );
 }
